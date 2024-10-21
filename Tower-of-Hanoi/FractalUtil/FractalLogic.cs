@@ -1,6 +1,9 @@
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace Tower_of_Hanoi.FractalUtil
 {
@@ -13,34 +16,40 @@ namespace Tower_of_Hanoi.FractalUtil
             _canvas = canvas;
         }
 
-        public void DrawTree(double x, double y, double angle, int depth, double length)
+        // Асинхронный метод для пошаговой отрисовки дерева
+        public async Task DrawTreeAsync(double x, double y, double angle, int depth, double length, CancellationToken cancellationToken)
         {
-            if (depth == 0) return;
+            if (depth == 0 || cancellationToken.IsCancellationRequested) return;
 
-            // Конечная точка для текущей ветки
-            double x1 = x + length * Math.Cos(angle);
-            double y1 = y - length * Math.Sin(angle);  // Уменьшаем Y, так как ось Y идёт вниз
+            // Вычисляем конечные координаты ветви
+            double xEnd = x + length * Math.Cos(angle);
+            double yEnd = y + length * Math.Sin(angle);
 
-            // Рисуем ветку
-            DrawLine(x, y, x1, y1);
+            // Рисуем линию ветви
+            DrawLine(x, y, xEnd, yEnd);
 
-            // Рекурсивно рисуем левую и правую ветки
-            DrawTree(x1, y1, angle - Math.PI / 4, depth - 1, length * 0.7); // Левая ветка
-            DrawTree(x1, y1, angle + Math.PI / 4, depth - 1, length * 0.7); // Правая ветка
+            // Задержка для пошаговой визуализации
+            await Task.Delay(1);  // 500 миллисекунд задержки между уровнями
+
+            // Рекурсивный вызов для рисования новых ветвей
+            await DrawTreeAsync(xEnd, yEnd, angle - Math.PI / 4, depth - 1, length * 0.7, cancellationToken);
+            await DrawTreeAsync(xEnd, yEnd, angle + Math.PI / 4, depth - 1, length * 0.7, cancellationToken);
         }
 
+        // Метод для рисования линии
         private void DrawLine(double x1, double y1, double x2, double y2)
         {
-            var line = new System.Windows.Shapes.Line
+            Line line = new Line
             {
                 X1 = x1,
                 Y1 = y1,
                 X2 = x2,
                 Y2 = y2,
-                Stroke = Brushes.Black,
-                StrokeThickness = 2
+                Stroke = Brushes.Green,  // Цвет ветвей
+                StrokeThickness = 2      // Толщина линии
             };
 
+            // Добавляем линию на холст
             _canvas.Children.Add(line);
         }
     }

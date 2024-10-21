@@ -35,11 +35,6 @@
         </Viewbox>
 
         <Grid x:Name="ControlsGrid" Grid.Row="2" Margin="100,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -47,6 +42,21 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+
+            <!-- Поле для ввода глубины рекурсии -->
+            <TextBlock Text="Recursion Depth:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5" />
+            <TextBox x:Name="DepthTextBox" VerticalAlignment="Center" TextAlignment="Center"
+                     Grid.Row="1" Grid.Column="1" Width="50" />
+
+            <Button x:Name="GenerateButton" Grid.Column="2" VerticalAlignment="Center"
+                    Margin="0,15,0,0" Padding="10" Click="GenerateButton_Click">
+                Generate
+            </Button>
+            
+            <Button x:Name="StopButton" Grid.Column="3" VerticalAlignment="Center"
+                    Margin="0,15,0,0" Padding="10" Click="StopButton_Click">
+                Stop
+            </Button>
         </Grid>
     </Grid>
 </Page>
