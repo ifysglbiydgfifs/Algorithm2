@@ -1,0 +1,20 @@
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\Tower of Hanoi Tests.dll
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\Tower of Hanoi Tests.pdb
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\Tower of Hanoi.exe
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\Tower of Hanoi.pdb
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\Tower of Hanoi.exe.config
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\obj\Release\Tower-of-HanoiTests.csproj.AssemblyReference.cache
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\obj\Release\Tower-of-HanoiTests.csproj.CoreCompileInputs.cache
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\obj\Release\Tower-of.FB13F8E5.Up2Date
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\obj\Release\Tower of Hanoi Tests.dll
+D:\C# projects\Algorithm_2\Tower-of-HanoiTests\obj\Release\Tower of Hanoi Tests.pdb
