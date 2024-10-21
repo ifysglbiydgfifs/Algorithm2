@@ -20,32 +20,44 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="1.5*" />
         </Grid.RowDefinitions>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="72" Grid.Row="0">
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="50" Grid.Row="0">
             Tower of Hanoi
         </TextBlock>
 
-        <RadioButton x:Name="StandardRadio" GroupName="HanoiType" Grid.Row="1" HorizontalAlignment="Center"
-                     VerticalContentAlignment="Center"  FontSize="18" Content="Standard" IsChecked="True" />
-        <RadioButton x:Name="ExtendedRadio" GroupName="HanoiType" Grid.Row="2" HorizontalAlignment="Center"
-                     VerticalContentAlignment="Center" FontSize="18" Content="Extended" />
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+            <RadioButton x:Name="StandardRadio" GroupName="HanoiType" VerticalContentAlignment="Center"  
+                         FontSize="18" Content="Standard" IsChecked="True" Margin="5"/>
+            
+            <RadioButton x:Name="ExtendedRadio" GroupName="HanoiType" VerticalContentAlignment="Center"  
+                         FontSize="18" Content="Extended" Margin="5"/>
+        </StackPanel>
 
-        <TextBlock HorizontalAlignment="Center" FontSize="22" Grid.Row="3" Margin="0,15,0,5">
-            Height of Tower:
-        </TextBlock>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal">
+            <TextBlock HorizontalAlignment="Center" FontSize="18" Margin="0,10,10,1">
+                Height of Tower:
+            </TextBlock>
+            
+            <TextBox x:Name="DisksCountTextBox" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                     TextAlignment="Center"  Width="60" FontSize="15" MaxLength="2" />
+        </StackPanel>
+        
 
-        <TextBox x:Name="DisksCountTextBox" HorizontalAlignment="Center" TextAlignment="Center"
-                 Grid.Row="4" Width="50" MaxLength="2" FontSize="16" KeyDown="DisksCountTextBox_KeyDown" />
-
-        <Button x:Name="GenerateButton" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Top"
+        <Button x:Name="GenerateButton" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top"
                 Margin="0,15,0,0" Padding="10" Click="GenerateButton_Click">
             Generate
         </Button>
         
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,50,0,0" FontSize="50" Grid.Row="4">
+            Pythagoras Tree Fractal
+        </TextBlock>
+        
         <Button x:Name="GenerateFractalButton" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Top"
-                Margin="0,80,0,0" Padding="10" Click="GenerateFractalButton_Click">
-            GenerateFractal
+                Margin="0,15,0,0" Padding="10" Click="GenerateFractalButton_Click">
+            Generate
         </Button>
     </Grid>
 </Page>
