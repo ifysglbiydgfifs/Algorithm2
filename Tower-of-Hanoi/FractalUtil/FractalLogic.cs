@@ -10,25 +10,29 @@ namespace Tower_of_Hanoi.FractalUtil
     public class FractalLogic
     {
         private readonly Canvas _canvas;
+        private readonly Func<int> _getDelay;
 
-        public FractalLogic(Canvas canvas)
+        public FractalLogic(Canvas canvas, Func<int> getDelay)
         {
             _canvas = canvas;
+            _getDelay = getDelay;
         }
+
         public async Task DrawTree(double x, double y, double angle, int depth, double length, CancellationToken cancellationToken)
         {
             if (depth == 0 || cancellationToken.IsCancellationRequested) return;
-            
+
             double xEnd = x + length * Math.Cos(angle);
             double yEnd = y + length * Math.Sin(angle);
 
             DrawBranch(x, y, xEnd, yEnd);
-
-            await Task.Delay(1);
-
+            
+            await Task.Delay(_getDelay(), cancellationToken);
+            
             await DrawTree(xEnd, yEnd, angle - Math.PI / 4, depth - 1, length * 0.7, cancellationToken);
             await DrawTree(xEnd, yEnd, angle + Math.PI / 4, depth - 1, length * 0.7, cancellationToken);
         }
+
         private void DrawBranch(double x1, double y1, double x2, double y2)
         {
             Line line = new Line

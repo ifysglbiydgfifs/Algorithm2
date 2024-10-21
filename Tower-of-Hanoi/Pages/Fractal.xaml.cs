@@ -51,26 +51,25 @@ namespace Tower_of_Hanoi.Pages
             double canvasHeight = FractalCanvas.ActualHeight;
             double startX = canvasWidth / 2;
             double startY = canvasHeight - 20;
-            
+
             if (!int.TryParse(DepthTextBox.Text, out int maxRecursionDepth) || maxRecursionDepth < 1)
             {
                 MessageBox.Show("Invalid recursion depth. Please enter a positive integer.");
                 return;
             }
             
-            FractalLogic pythagorasTree = new FractalLogic(FractalCanvas);
+            FractalLogic pythagorasTree = new FractalLogic(FractalCanvas, () => (int)SpeedSlider.Value);
             
-            for (int currentDepth = 0; currentDepth < maxRecursionDepth; currentDepth++)
+            for (int currentDepth = 0; currentDepth <= maxRecursionDepth; currentDepth++)
             {
                 cancellationToken.ThrowIfCancellationRequested();
                 
                 FractalCanvas.Children.Clear();
                 
                 await pythagorasTree.DrawTree(startX, startY, -Math.PI / 2, currentDepth, BranchLength, cancellationToken);
-
-                await Task.Delay(5, cancellationToken);
             }
         }
+
 
         private void BackToStartPageButton_Click(object sender, RoutedEventArgs e)
         {
