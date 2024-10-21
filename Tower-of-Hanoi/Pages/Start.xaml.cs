@@ -29,6 +29,13 @@ namespace Tower_of_Hanoi
             Generating.TowerIsExtended = (bool)ExtendedRadio.IsChecked;
             _ = NavigationService.Navigate(new Uri("/Pages/Generating.xaml", UriKind.Relative));
         }
+        
+        private void GenerateFractalButton_Click(object sender, RoutedEventArgs e)
+        {
+            Fractal fractalPage = new Fractal();
+            NavigationService?.Navigate(fractalPage);
+
+        }
 
         private void DisksCountTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {

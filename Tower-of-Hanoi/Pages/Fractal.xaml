@@ -1,0 +1,52 @@
+<Page x:Class="Tower_of_Hanoi.Pages.Fractal"
+      x:Name="FractalPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="Fractal"
+      DataContext="{Binding ElementName=FractalPage}">
+    <Page.Style>
+        <Style TargetType="Page">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+        </Style>
+    </Page.Style>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition MinHeight="300" />
+            <RowDefinition Height="135" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="BackToStartPageButton" Style="{StaticResource ControlButtons}" FontSize="22" HorizontalAlignment="Left" Click="BackToStartPageButton_Click">
+            &#x2B05;
+            <Button.ToolTip>Back to Start Page</Button.ToolTip>
+        </Button>
+
+        <TextBlock HorizontalAlignment="Center"  FontSize="18" VerticalAlignment="Bottom">
+            <Run Text="{Binding RemainingMoves}" />
+            Remaining
+        </TextBlock>
+        <Viewbox Grid.Row="1">
+            <Canvas x:Name="FractalCanvas" Width="800" Height="325" />
+        </Viewbox>
+
+        <Grid x:Name="ControlsGrid" Grid.Row="2" Margin="100,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </Grid>
+</Page>

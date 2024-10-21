@@ -76,6 +76,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FractalUtil\FractalLogic.cs" />
+    <Compile Include="Pages\Fractal.xaml.cs">
+      <DependentUpon>Fractal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Generating.xaml.cs">
       <DependentUpon>Generating.xaml</DependentUpon>
     </Compile>
@@ -96,6 +100,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Fractal.xaml" />
     <Page Include="Pages\Generating.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

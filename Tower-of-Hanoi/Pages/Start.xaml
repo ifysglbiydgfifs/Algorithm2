@@ -42,5 +42,10 @@
                 Margin="0,15,0,0" Padding="10" Click="GenerateButton_Click">
             Generate
         </Button>
+        
+        <Button x:Name="GenerateFractalButton" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Top"
+                Margin="0,80,0,0" Padding="10" Click="GenerateFractalButton_Click">
+            GenerateFractal
+        </Button>
     </Grid>
 </Page>
