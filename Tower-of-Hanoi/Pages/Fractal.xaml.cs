@@ -3,8 +3,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
 using Tower_of_Hanoi.FractalUtil;
 
 namespace Tower_of_Hanoi.Pages
@@ -65,20 +63,30 @@ namespace Tower_of_Hanoi.Pages
             double startY = canvasHeight - 20;  // Начало снизу, отступ 20 пикселей
 
             // Читаем глубину рекурсии из текстбокса
-            if (!int.TryParse(DepthTextBox.Text, out int recursionDepth) || recursionDepth < 1)
+            if (!int.TryParse(DepthTextBox.Text, out int maxRecursionDepth) || maxRecursionDepth < 1)
             {
                 MessageBox.Show("Invalid recursion depth. Please enter a positive integer.");
                 return;
             }
 
-            // Очищаем холст перед новой отрисовкой
-            FractalCanvas.Children.Clear();
-
             // Создаем объект для рисования фрактала
             FractalLogic tree = new FractalLogic(FractalCanvas);
 
-            // Рисуем дерево с константной длиной ветвей поэтапно
-            await tree.DrawTreeAsync(startX, startY, -Math.PI / 2, recursionDepth, BranchLength, cancellationToken);
+            // Поэтапная отрисовка фрактала для каждой глубины от 1 до maxRecursionDepth
+            for (int currentDepth = 1; currentDepth <= maxRecursionDepth; currentDepth++)
+            {
+                // Проверяем токен отмены, если отмена, выходим из цикла
+                cancellationToken.ThrowIfCancellationRequested();
+
+                // Очищаем холст перед новой отрисовкой
+                FractalCanvas.Children.Clear();
+
+                // Рисуем дерево для текущей глубины рекурсии
+                await tree.DrawTreeAsync(startX, startY, -Math.PI / 2, currentDepth, BranchLength, cancellationToken);
+
+                // Добавляем небольшую задержку для наглядной поэтапной отрисовки
+                await Task.Delay(5, cancellationToken);  // 500 мс пауза между уровнями
+            }
         }
 
         private void BackToStartPageButton_Click(object sender, RoutedEventArgs e)
